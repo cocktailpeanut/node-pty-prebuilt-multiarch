@@ -19,19 +19,18 @@ const nodeBuildTargets = [
 //  '-t',
 //  '15.0.0',
 //  '-t',
-//  '16.0.0',
-//  '-t',
-//  '17.0.1',
-//  '-t',
-//  '18.0.0',
-//  '-t',
-//  '19.0.0'
+  '16.0.0',
   '-t',
-  '18.12.1'
+  '17.0.1',
+  '-t',
+  '18.0.0',
+  '-t',
+  '19.0.0'
 ]
 
 const nodeBuildCmd = [
   prebuildPath,
+  "--electron-compat",
   ...nodeBuildTargets,
 ]
 

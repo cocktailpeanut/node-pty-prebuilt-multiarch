@@ -26,20 +26,19 @@ const nodeBuildTargets = [
 //  "14.0.0",
 //  "-t",
 //  "15.0.0",
-//  "-t",
-//  "16.0.0",
-//  "-t",
-//  "17.0.1",
-//  "-t",
-//  "18.0.0",
-//  "-t",
-//  "19.0.0",
   "-t",
-  '18.12.1'
+  "16.0.0",
+  "-t",
+  "17.0.1",
+  "-t",
+  "18.0.0",
+  "-t",
+  "19.0.0",
 ];
 
 const nodeBuildCmd = [
   prebuildPath,
+  "--electron-compat",
   "--include-regex",
   '.(node|exe|dll|pdb)',
   ...nodeBuildTargets,
