@@ -148,6 +148,10 @@ jobs:
       - run: yarn lint
       - run: yarn build
       - run: yarn test
+      - uses: actions/upload-artifact@v3
+        with:
+          name: prebuilds
+          path: prebuilds
       - name: Simulate Publishing to NPM
         if:  ${{ inputs.dryrun }}
         run: npm publish --access public --dry-run
