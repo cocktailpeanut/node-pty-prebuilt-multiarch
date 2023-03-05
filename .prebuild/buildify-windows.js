@@ -39,7 +39,9 @@ const nodeBuildTargets = [
 //  "-t",
 //  "23.0.0",
   "-t",
-  "electron@23.1.2"
+  "23.1.2",
+//  "-t",
+//  "electron@23.1.2"
 ];
 
 const nodeBuildCmd = [
