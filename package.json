@@ -4,7 +4,7 @@
   "author": {
     "name": "Microsoft Corporation"
   },
-  "version": "v0.10.1-pre.18",
+  "version": "v0.10.1-pre.19",
   "license": "MIT",
   "main": "./lib/index.js",
   "types": "./typings/node-pty.d.ts",
@@ -19,6 +19,7 @@
     "src/",
     "deps/",
     "typings/",
+    "prebuilds/",
     "prebuilds/win32-x64",
     "prebuilds/darwin-x64",
     "prebuilds/darwin-arm64",
