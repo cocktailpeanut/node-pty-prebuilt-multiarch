@@ -4,13 +4,13 @@
   "author": {
     "name": "Microsoft Corporation"
   },
-  "version": "0.10.1-pre.15",
+  "version": "0.10.1-pre.17",
   "license": "MIT",
   "main": "./lib/index.js",
   "types": "./typings/node-pty.d.ts",
   "repository": {
     "type": "git",
-    "url": "git://github.com/cdktf/node-pty-prebuilt-multiarch.git"
+    "url": "git://github.com/cocktailpeanut/node-pty-prebuilt-multiarch.git"
   },
   "files": [
     "binding.gyp",
@@ -27,9 +27,9 @@
     "prebuilds/linux-arm",
     "prebuilds/linux-arm64"
   ],
-  "homepage": "https://github.com/cdktf/node-pty-prebuilt-multiarch",
+  "homepage": "https://github.com/cocktailpeanut/node-pty-prebuilt-multiarch",
   "bugs": {
-    "url": "https://github.com/cdktf/node-pty-prebuilt-multiarch/issues"
+    "url": "https://github.com/cocktailpeanut/node-pty-prebuilt-multiarch/issues"
   },
   "keywords": [
     "pty",
