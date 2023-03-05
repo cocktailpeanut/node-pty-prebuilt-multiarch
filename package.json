@@ -1,10 +1,10 @@
 {
-  "name": "@cdktf/node-pty-prebuilt-multiarch",
+  "name": "node-pty-prebuilt-multiarch-cp",
   "description": "Fork pseudoterminals in Node.JS",
   "author": {
     "name": "Microsoft Corporation"
   },
-  "version": "0.10.1-pre.14",
+  "version": "0.10.1-pre.15",
   "license": "MIT",
   "main": "./lib/index.js",
   "types": "./typings/node-pty.d.ts",
