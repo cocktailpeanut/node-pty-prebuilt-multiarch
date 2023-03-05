@@ -22,18 +22,20 @@ const cwd = path.resolve(__dirname, "../");
 
 // define build targets
 const nodeBuildTargets = [
+//  "-t",
+//  "14.0.0",
+//  "-t",
+//  "15.0.0",
+//  "-t",
+//  "16.0.0",
+//  "-t",
+//  "17.0.1",
+//  "-t",
+//  "18.0.0",
+//  "-t",
+//  "19.0.0",
   "-t",
-  "14.0.0",
-  "-t",
-  "15.0.0",
-  "-t",
-  "16.0.0",
-  "-t",
-  "17.0.1",
-  "-t",
-  "18.0.0",
-  "-t",
-  "19.0.0",
+  '23.0.0-alpha.1'
 ];
 
 const nodeBuildCmd = [
@@ -61,9 +63,10 @@ console.log("Extracting them into the right sub-directories in prebuilds/");
 
 // Find files (like .e.g. prebuilds/@cdktf/node-pty-prebuilt-multiarch-v0.10.1-pre.9-node-v83-darwin-x64.tar.gz)
 const pkg = require("../package.json");
-const [scope, package] = pkg.name.split("/");
+//const [scope, package] = pkg.name.split("/");
 const version = pkg.version;
-const dir = path.join(cwd, "prebuilds", scope);
+//const dir = path.join(cwd, "prebuilds", scope);
+const dir = path.join(cwd, "prebuilds");
 const files = fs.readdirSync(dir);
 const all = files.map((file) => {
   const match = /node-v(\d+)-/.exec(file);
@@ -85,9 +88,14 @@ const all = files.map((file) => {
 
 Promise.all(all).then(() => {
   console.log("Done decompressing.");
-  console.log("Deleting compressed files in prebuilds/@cdktf dir");
+  console.log("Deleting compressed files in prebuilds dir");
 
-  fs.rmdirSync(dir, { recursive: true, force: true });
+  for(let file of files) {
+    console.log("removing", file)
+    fs.rmSync(path.join(dir, file))
+  }
+
+//  fs.rmdirSync(dir, { recursive: true, force: true });
 
   console.log("Done");
 });

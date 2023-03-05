@@ -102,7 +102,7 @@ jobs:
         docker run --rm -v $(pwd):/node-pty multiarch-build
 
     - name: macOS - Setup Python
-      if: runner.os == 'macOS'
+      if: runner.os == 'macOS' && runner.arch == 'X64'
       uses: actions/setup-python@v4
       with:
         python-version: '3.11'

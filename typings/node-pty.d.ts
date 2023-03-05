@@ -3,7 +3,7 @@
  * Copyright (c) 2018, Microsoft Corporation (MIT License).
  */
 
-declare module '@cdktf/node-pty-prebuilt-multiarch' {
+declare module 'node-pty-prebuilt-multiarch-cp' {
   /**
    * Forks a process as a pseudoterminal.
    * @param file The file to launch.
