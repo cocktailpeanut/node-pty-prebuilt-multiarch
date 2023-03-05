@@ -4,7 +4,7 @@
   "author": {
     "name": "Microsoft Corporation"
   },
-  "version": "0.10.1-pre.31",
+  "version": "0.10.1-pre.32",
   "license": "MIT",
   "main": "./lib/index.js",
   "types": "./typings/node-pty.d.ts",
@@ -43,7 +43,8 @@
     "build": "tsc -b ./src/tsconfig.json",
     "watch": "tsc -b -w ./src/tsconfig.json",
     "lint": "eslint -c .eslintrc.js --ext .ts src/",
-    "install": "node-gyp-build",
+    "install": "node scripts/check-prebuild.js || prebuild-install || node scripts/install.js",
+    "postinstall": "node scripts/post-install.js",
     "test": "cross-env NODE_ENV=test mocha -R spec --exit lib/*.test.js",
     "posttest": "npm run lint",
     "prepare": "npm run build",
@@ -51,7 +52,6 @@
   },
   "dependencies": {
     "nan": "^2.14.2",
-    "node-gyp-build": "^4.6.0",
     "prebuild-install": "^7.1.1"
   },
   "devDependencies": {
