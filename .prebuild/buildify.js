@@ -28,16 +28,16 @@ const nodeBuildTargets = [
 //  '19.0.0'
 //  "-t",
 //  "22.0.0",
-  "-t",
-  "23.1.2",
 //  "-t",
-//  "electron@23.1.2"
+//  "23.1.2",
+  "-t",
+  "electron@23.1.2"
 ]
 
 const nodeBuildCmd = [
   prebuildPath,
-  "-r",
-  "electron",
+//  "-r",
+//  "electron",
   ...nodeBuildTargets,
 ]
 

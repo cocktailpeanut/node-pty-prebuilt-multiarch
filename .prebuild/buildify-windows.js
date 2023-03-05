@@ -38,16 +38,16 @@ const nodeBuildTargets = [
 //  "22.0.0",
 //  "-t",
 //  "23.0.0",
-  "-t",
-  "23.1.2",
 //  "-t",
-//  "electron@23.1.2"
+//  "23.1.2",
+  "-t",
+  "electron@23.1.2"
 ];
 
 const nodeBuildCmd = [
   prebuildPath,
-  "-r",
-  "electron",
+//  "-r",
+//  "electron",
   "--include-regex",
   '.(node|exe|dll|pdb)',
   ...nodeBuildTargets,
