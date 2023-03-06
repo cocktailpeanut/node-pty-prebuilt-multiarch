@@ -105,10 +105,10 @@ Promise.all(all).then(() => {
   console.log("Done decompressing.");
   console.log("Deleting compressed files in prebuilds dir");
 
-  for(let file of files) {
-    console.log("removing", file)
-    fs.rmSync(path.join(dir, file))
-  }
+//  for(let file of files) {
+//    console.log("removing", file)
+//    fs.rmSync(path.join(dir, file))
+//  }
 
 //  fs.rmdirSync(dir, { recursive: true, force: true });
 
