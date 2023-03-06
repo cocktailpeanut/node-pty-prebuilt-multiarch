@@ -83,6 +83,7 @@ const version = pkg.version;
 //const dir = path.join(cwd, "prebuilds", scope);
 const dir = path.join(cwd, "prebuilds");
 const files = fs.readdirSync(dir);
+console.log("**FILES", files)
 const all = files.map((file) => {
   const match = /node-v(\d+)-/.exec(file);
   if (!match) return Promise.resolve();
