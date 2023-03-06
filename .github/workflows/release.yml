@@ -122,10 +122,10 @@ jobs:
         yarn install --ignore-scripts
         node .prebuild/buildify-windows.js
 
-#    - uses: actions/upload-artifact@v3
-#      with:
-#        name: prebuilds
-#        path: prebuilds
+    - uses: actions/upload-artifact@v3
+      with:
+        name: prebuilds
+        path: prebuilds
     
   release:
     runs-on: ubuntu-latest
