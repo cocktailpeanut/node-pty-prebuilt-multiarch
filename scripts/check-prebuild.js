@@ -1,5 +1,7 @@
 const os = require('os');
-const { ptyPath, winPtyPath } = require('../src/prebuild-file-path');
+const { ptyPath, winPtyPath } = require('../lib/prebuild-file-path');
+
+console.log("# PREBUILD PATHS", { ptyPath, winPtyPath })
 
 const binToCheck = os.platform() === "win32" ? winPtyPath : ptyPath;
 
