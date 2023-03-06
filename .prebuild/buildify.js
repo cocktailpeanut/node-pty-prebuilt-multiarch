@@ -51,6 +51,8 @@ if (os.platform() === 'linux' && fs.existsSync('/etc/alpine-release')) {
   nodeBuildCmd.push('--tag-libc')
 }
 
+nodeBuildCmd.push('--tag-armv')
+
 console.log('Building for Node.js:');
 console.log(nodeBuildCmd.join(' '));
 

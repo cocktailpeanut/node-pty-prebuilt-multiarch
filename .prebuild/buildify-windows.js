@@ -60,6 +60,8 @@ const nodeBuildCmd = [
   ...nodeBuildTargets,
 ];
 
+nodeBuildCmd.push('--tag-armv')
+
 console.log("Building for Node.js for Windows:");
 console.log(nodeBuildCmd.join(" "));
 
@@ -82,6 +84,8 @@ const pkg = require("../package.json");
 const version = pkg.version;
 //const dir = path.join(cwd, "prebuilds", scope);
 const dir = path.join(cwd, "prebuilds", "win32-x64");
+
+
 const files = fs.readdirSync(dir);
 console.log("**FILES", files)
 const all = files.map((file) => {
