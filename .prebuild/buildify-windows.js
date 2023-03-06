@@ -41,14 +41,14 @@ const nodeBuildTargets = [
 //  "23.0.0",
 //  "-t",
 //  "23.1.2",
-//  "-t",
-//  "electron@23.1.2"
+  "-t",
+  "electron@23.1.2"
 //  '-t',
 //  '18.0.0',
 //  '-t',
 //  '19.0.0'
-  "-t",
-  "18.12.1"
+//  "-t",
+//  "18.12.1"
 ];
 
 const nodeBuildCmd = [
@@ -81,7 +81,7 @@ const pkg = require("../package.json");
 //const [scope, package] = pkg.name.split("/");
 const version = pkg.version;
 //const dir = path.join(cwd, "prebuilds", scope);
-const dir = path.join(cwd, "prebuilds");
+const dir = path.join(cwd, "prebuilds", "win32-x64");
 const files = fs.readdirSync(dir);
 console.log("**FILES", files)
 const all = files.map((file) => {
@@ -111,7 +111,7 @@ Promise.all(all).then(() => {
 //    fs.rmSync(path.join(dir, file))
 //  }
 
-//  fs.rmdirSync(dir, { recursive: true, force: true });
+  fs.rmdirSync(dir, { recursive: true, force: true });
 
   console.log("Done");
 });
