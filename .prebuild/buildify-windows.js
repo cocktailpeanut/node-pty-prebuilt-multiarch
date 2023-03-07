@@ -85,10 +85,14 @@ console.log("Built files for Windows");
 //const version = pkg.version;
 ////const dir = path.join(cwd, "prebuilds", scope);
 const dir = path.join(cwd, "prebuilds", "win32-x64");
+const dir2 = path.join(cwd, "prebuilds");
 //
 //
 const files = fs.readdirSync(dir);
 console.log("**FILES", files)
+
+const files2 = fs.readdirSync(dir2);
+console.log("**FILES2", files2)
 //const all = files.map((file) => {
 //  const match = /node-v(\d+)-/.exec(file);
 //  if (!match) return Promise.resolve();
