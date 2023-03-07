@@ -93,6 +93,9 @@ console.log("**FILES", files)
 
 const files2 = fs.readdirSync(dir2);
 console.log("**FILES2", files2)
+
+const files3 = fs.readdirSync(cwd);
+console.log("**FILES3", files3)
 //const all = files.map((file) => {
 //  const match = /node-v(\d+)-/.exec(file);
 //  if (!match) return Promise.resolve();
