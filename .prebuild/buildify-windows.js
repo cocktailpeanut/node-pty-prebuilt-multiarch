@@ -11,8 +11,8 @@ const child_process = require("child_process");
 const decompress = require("decompress");
 const decompressTargz = require("decompress-targz");
 
-//const prebuildPkgPath = path.dirname(require.resolve("prebuild"));
-const prebuildPkgPath = path.dirname(require.resolve('prebuildify'));
+const prebuildPkgPath = path.dirname(require.resolve("prebuild"));
+//const prebuildPkgPath = path.dirname(require.resolve('prebuildify'));
 const prebuildPath = path.resolve(prebuildPkgPath, "bin.js");
 
 const cwd = path.resolve(__dirname, "../");
