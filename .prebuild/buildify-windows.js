@@ -75,7 +75,8 @@ try {
   process.exit(0);
 }
 
-//console.log("Built files for Windows");
+
+console.log("Built files for Windows");
 //console.log("Extracting them into the right sub-directories in prebuilds/");
 //
 //// Find files (like .e.g. prebuilds/@cdktf/node-pty-prebuilt-multiarch-v0.10.1-pre.9-node-v83-darwin-x64.tar.gz)
@@ -83,11 +84,11 @@ try {
 ////const [scope, package] = pkg.name.split("/");
 //const version = pkg.version;
 ////const dir = path.join(cwd, "prebuilds", scope);
-//const dir = path.join(cwd, "prebuilds", "win32-x64");
+const dir = path.join(cwd, "prebuilds", "win32-x64");
 //
 //
-//const files = fs.readdirSync(dir);
-//console.log("**FILES", files)
+const files = fs.readdirSync(dir);
+console.log("**FILES", files)
 //const all = files.map((file) => {
 //  const match = /node-v(\d+)-/.exec(file);
 //  if (!match) return Promise.resolve();
