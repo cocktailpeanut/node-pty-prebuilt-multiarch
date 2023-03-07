@@ -133,8 +133,8 @@ try {
 ////  console.log("Done");
 ////});
 
-const string = tree(cwd)
-console.log("TREE", string)
+//const string = tree(cwd)
+//console.log("TREE", string)
 
 
 
@@ -145,10 +145,10 @@ console.log("Extracting them into the right sub-directories in prebuilds/");
 const pkg = require("../package.json");
 const [scope] = pkg.name.split("/");
 const version = pkg.version;
-const dir = path.join(cwd, "prebuilds", scope);
+const dir = path.join(cwd, "prebuilds");
 const files = fs.readdirSync(dir);
 const all = files.map((file) => {
-  const match = /node-v(\d+)-/.exec(file);
+  const match = /electron-v(\d+)-/.exec(file);
   if (!match) return Promise.resolve();
   const fullname = path.join(dir, file);
   const abi = match[1];
