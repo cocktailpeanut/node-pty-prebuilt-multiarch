@@ -173,10 +173,15 @@ Promise.all(all).then(() => {
   const files = fs.readdirSync(dir);
   console.log("#FILES", files)
 
-  const destfiles = fs.readdirSync(dest);
-  console.log("#DEST FILES", destfiles)
+  for(let file of files) {
+    if (/tar.gz/.test(file)) {
+      const p = path.join(dir, file)
+      console.log("delete", p)
+      fs.rmSync(p)
+    }
+  }
 
-  fs.rmdirSync(dir, { recursive: true, force: true });
+//  fs.rmdirSync(dir, { recursive: true, force: true });
 
   console.log("Done");
 });
