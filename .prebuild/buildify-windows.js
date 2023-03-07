@@ -76,30 +76,30 @@ try {
 }
 
 
-console.log("Built files for Windows");
-//console.log("Extracting them into the right sub-directories in prebuilds/");
+//console.log("Built files for Windows");
+////console.log("Extracting them into the right sub-directories in prebuilds/");
+////
+////// Find files (like .e.g. prebuilds/@cdktf/node-pty-prebuilt-multiarch-v0.10.1-pre.9-node-v83-darwin-x64.tar.gz)
+////const pkg = require("../package.json");
+//////const [scope, package] = pkg.name.split("/");
+////const version = pkg.version;
+//////const dir = path.join(cwd, "prebuilds", scope);
+//const dir = path.join(cwd, "prebuilds", "win32-x64");
+//const dir2 = path.join(cwd, "prebuilds");
+//const dir4 = path.join(cwd, "build", "Release");
+////
+////
+//const files = fs.readdirSync(dir);
+//console.log("**FILES", files)
 //
-//// Find files (like .e.g. prebuilds/@cdktf/node-pty-prebuilt-multiarch-v0.10.1-pre.9-node-v83-darwin-x64.tar.gz)
-//const pkg = require("../package.json");
-////const [scope, package] = pkg.name.split("/");
-//const version = pkg.version;
-////const dir = path.join(cwd, "prebuilds", scope);
-const dir = path.join(cwd, "prebuilds", "win32-x64");
-const dir2 = path.join(cwd, "prebuilds");
-const dir4 = path.join(cwd, "build", "Release");
+//const files2 = fs.readdirSync(dir2);
+//console.log("**FILES2", files2)
 //
+//const files3 = fs.readdirSync(cwd);
+//console.log("**FILES3", files3)
 //
-const files = fs.readdirSync(dir);
-console.log("**FILES", files)
-
-const files2 = fs.readdirSync(dir2);
-console.log("**FILES2", files2)
-
-const files3 = fs.readdirSync(cwd);
-console.log("**FILES3", files3)
-
-const files4 = fs.readdirSync(dir4)
-console.log("**FILES4", files4)
+//const files4 = fs.readdirSync(dir4)
+//console.log("**FILES4", files4)
 //const all = files.map((file) => {
 //  const match = /node-v(\d+)-/.exec(file);
 //  if (!match) return Promise.resolve();
@@ -117,17 +117,63 @@ console.log("**FILES4", files4)
 //    console.log(`Decompressed ${fullname} into ${dest}`);
 //  });
 //});
-//
-//Promise.all(all).then(() => {
-//  console.log("Done decompressing.");
-//  console.log("Deleting compressed files in prebuilds dir");
-//
-////  for(let file of files) {
-////    console.log("removing", file)
-////    fs.rmSync(path.join(dir, file))
-////  }
-//
-//  fs.rmdirSync(dir, { recursive: true, force: true });
-//
-//  console.log("Done");
-//});
+////
+////Promise.all(all).then(() => {
+////  console.log("Done decompressing.");
+////  console.log("Deleting compressed files in prebuilds dir");
+////
+//////  for(let file of files) {
+//////    console.log("removing", file)
+//////    fs.rmSync(path.join(dir, file))
+//////  }
+////
+////  fs.rmdirSync(dir, { recursive: true, force: true });
+////
+////  console.log("Done");
+////});
+
+
+
+console.log("Built files for Windows");
+console.log("Extracting them into the right sub-directories in prebuilds/");
+
+// Find files (like .e.g. prebuilds/@cdktf/node-pty-prebuilt-multiarch-v0.10.1-pre.9-node-v83-darwin-x64.tar.gz)
+const pkg = require("../package.json");
+const [scope] = pkg.name.split("/");
+const version = pkg.version;
+const dir = path.join(cwd, "prebuilds", scope);
+const files = fs.readdirSync(dir);
+const all = files.map((file) => {
+  const match = /node-v(\d+)-/.exec(file);
+  if (!match) return Promise.resolve();
+  const fullname = path.join(dir, file);
+  const abi = match[1];
+  const dest = path.resolve(
+    cwd,
+    "prebuilds",
+    `${os.platform}-${os.arch}`,
+    `abi${abi}`
+  );
+  console.log({ fullname, dest })
+  return decompress(fullname, dest, {
+    plugins: [decompressTargz()],
+  }).then(() => {
+    console.log(`Decompressed ${fullname} into ${dest}`);
+  });
+});
+
+Promise.all(all).then(() => {
+  console.log("Done decompressing.");
+  console.log("Deleting compressed files in prebuilds/@cdktf dir");
+
+  const files = fs.readdirSync(dir);
+  console.log("#FILES", files)
+
+  const destfiles = fs.readdirSync(dest);
+  console.log("#DEST FILES", destfiles)
+
+  fs.rmdirSync(dir, { recursive: true, force: true });
+
+  console.log("Done");
+});
+
