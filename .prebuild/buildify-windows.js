@@ -60,7 +60,7 @@ const nodeBuildCmd = [
   ...nodeBuildTargets,
 ];
 
-nodeBuildCmd.push('--tag-armv')
+//nodeBuildCmd.push('--tag-armv')
 
 console.log("Building for Node.js for Windows:");
 console.log(nodeBuildCmd.join(" "));

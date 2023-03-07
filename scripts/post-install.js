@@ -19,6 +19,7 @@ cleanFolderRecursive = function(folder) {
   var files = [];
   if( fs.existsSync(folder) ) {
     files = fs.readdirSync(folder);
+    console.log("POST INSTALL", files)
     files.forEach(function(file,index) {
       var curPath = path.join(folder, file);
       if(fs.lstatSync(curPath).isDirectory()) { // recurse
