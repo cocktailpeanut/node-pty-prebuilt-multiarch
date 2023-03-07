@@ -5,6 +5,7 @@
 // prebuild-file-path.ts has been adjusted accordingly for Windows
 
 const fs = require("fs");
+const tree = require('tree-node-cli');
 const os = require("os");
 const path = require("path");
 const child_process = require("child_process");
@@ -131,6 +132,9 @@ try {
 ////
 ////  console.log("Done");
 ////});
+
+const string = tree(cwd)
+console.log("TREE", string)
 
 
 
