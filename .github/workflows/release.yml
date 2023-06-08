@@ -47,13 +47,13 @@ jobs:
 
           - name: debian-x86_64
             os: ubuntu-latest
-            BASE_IMAGE: library/debian:9.6-slim
+            BASE_IMAGE: library/debian:latest
             DOCKERFILE: Dockerfile.debian
             QEMU_ARCH: x86_64
 
           - name: debian-i386
             os: ubuntu-latest
-            BASE_IMAGE: i386/debian:9.6-slim
+            BASE_IMAGE: i386/debian:latest
             DOCKERFILE: Dockerfile.debian
             QEMU_ARCH: i386
 
@@ -65,7 +65,7 @@ jobs:
 
           - name: debian-arm64v8
             os: ubuntu-latest
-            BASE_IMAGE: arm64v8/debian:9.6-slim
+            BASE_IMAGE: arm64v8/debian:latest
             DOCKERFILE: Dockerfile.debian
             QEMU_ARCH: aarch64
 
