@@ -74,5 +74,9 @@
   "resolutions": {
     "node-gyp": "^9.3.1",
     "node-abi": "^3.33.0"
+  },
+  "overrides": {
+    "node-gyp": "^9.3.1",
+    "node-abi": "^3.33.0"
   }
 }
